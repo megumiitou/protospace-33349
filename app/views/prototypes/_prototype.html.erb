@@ -1,0 +1,10 @@
+<div class="card">
+  <%= image_tag prototype.image, if prototype.image.attached?, class: :card__img, root_path %>
+  <div class="card__body">
+    <%= prototype.title, root_path, class: :card__title%>
+    <p class="card__summary">
+      <%= prototype.catch_copy %>
+    </p>
+    <%= "by #{prototype.user.name}", root_path, class: :card__user %>
+  </div>
+</div>
