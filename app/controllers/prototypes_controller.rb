@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, except: [:index, :new, :create]
+  before_action :set_prototype, except: [:index, :new, :create, :edit]
 
 
   def index
@@ -23,11 +23,21 @@ class PrototypesController < ApplicationController
   end
 
   def edit
+    @prototype = Prototype.find(params[:id])
   end
 
   def update
+    if @prototype.update(prototype_params)
+      redirect_to prototype_path(@prototype)
+    else
+      render :edit
+    end
   end
 
+  def destroy
+    @prototype.destroy
+    redirect_to root_path
+  end
 
   private
   def prototype_params
