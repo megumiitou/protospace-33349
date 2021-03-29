@@ -1,10 +1,6 @@
 class PrototypesController < ApplicationController
   before_action :set_prototype, except: [:index, :new, :create, :edit]
   before_action :authenticate_user!, except: [:index, :show]
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of a907dc2 (Revert "アクセス制限の実装")
 
   def index
     @prototypes = Prototype.includes(:user).order("created_at DESC")
